@@ -34,6 +34,6 @@ production:
     connections:
       - role: master
         blacklist_duration: 0
-        url: postgresql://<%= ENV['DB_USER'] || 'mastodon' %>:<%= (ENV['DB_PASS'] || '').to_json %>@<%= ENV['DB_HOST'] || 'localhost' %>:<%= ENV['DB_PORT'] || 5432 %>/<%= ENV['DB_NAME'] || 'mastodon_production' %>
+        url: <%= ENV['DATABASE_URL'] %>
       - role: slave
-        url: postgresql://<%= ENV['DB_USER'] || 'mastodon' %>:<%= (ENV['DB_PASS'] || '').to_json %>@<%= ENV['DB_HOST_SLAVE'] || 'localhost' %>:<%= ENV['DB_PORT'] || 5432 %>/<%= ENV['DB_NAME'] || 'mastodon_production' %>
+        url: <%= ENV['DATABASE_URL_SLAVE'] %>
